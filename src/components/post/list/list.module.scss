@@ -1,0 +1,33 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  padding: 1rem;
+  border: var(--card-border);
+  border-radius: var(--xs);
+
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: var(--xs);
+
+    @media (width >= 912px) {
+      justify-content: flex-end;
+    }
+
+    button {
+      min-width: unset;
+      margin: 0;
+      padding: var(--xs) var(--sm);
+      border: none;
+      font-size: var(--sm);
+      color: inherit;
+      background: none;
+      cursor: pointer;
+
+      &.loading {
+        cursor: not-allowed;
+      }
+    }
+  }
+}

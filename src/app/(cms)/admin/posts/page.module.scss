@@ -1,0 +1,44 @@
+.main {
+  .container {
+    .titleRow {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+
+      h1 {
+        margin-bottom: unset;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: var(--xs) var(--sm);
+        color: white;
+        background-color: rgb(var(--primary-rgb));
+        border-radius: var(--border-radius);
+        backface-visibility: hidden;
+        transition: scale 0.2s;
+
+        &:hover {
+          scale: 1.05;
+        }
+
+        &:active {
+          scale: 0.95;
+        }
+      }
+    }
+
+    .grid {
+      display: grid;
+      grid-gap: 1rem;
+      padding: 1rem;
+
+      @media (width >= 912px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}

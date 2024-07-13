@@ -1,0 +1,128 @@
+.result {
+  flex: 1;
+
+  @media (width >= 650px) {
+    flex: 0 0 calc(50% - 0.5rem);
+
+    @media (width >= 912px) {
+      flex: 0 0 calc(33% - 0.5rem);
+    }
+  }
+
+  .header {
+    margin-bottom: var(--sm);
+
+    .postImage {
+      img {
+        aspect-ratio: 1;
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .body {
+    margin-bottom: var(--md);
+    h3 {
+      margin-bottom: var(--sm);
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    p {
+      display: -webkit-box;
+      min-height: calc(1rem * 2);
+      margin-bottom: var(--md);
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      opacity: 0.5;
+      overflow: hidden;
+    }
+  }
+
+  .footer {
+    .link {
+      display: flex;
+      align-items: center;
+      gap: var(--sm);
+
+      .icon {
+        position: relative;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: var(--md);
+        height: var(--md);
+        box-shadow: inset 0 0 1px rgb(var(--foreground-rgb));
+        border-radius: 50%;
+        overflow: hidden;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background-color: rgb(var(--foreground-rgb));
+          border-radius: 50%;
+          scale: (0.5);
+          transform-origin: left center;
+          transform: translateX(-100%);
+          transition: left 0.2s ease-in-out, scale 0.2s ease-in-out,
+            transform 0.2s linear;
+        }
+
+        svg {
+          position: relative;
+          transition: color 0.2s ease-in-out;
+        }
+      }
+
+      @media (width >= 912px) {
+        &:hover {
+          .text {
+            color: rgba(var(--foreground-rgb), 0.5);
+          }
+
+          .icon {
+            &::before {
+              left: 0;
+              scale: (1);
+              transform: translateX(0);
+            }
+
+            svg {
+              color: rgb(var(--background-rgb));
+              animation: swipe-right 0.33s 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes swipe-right {
+  0% {
+    transform: translate(0px, 0px);
+  }
+
+  33% {
+    transform: translate(32px, 0px);
+  }
+
+  50% {
+    transform: translate(0px, 100px);
+  }
+
+  66% {
+    transform: translate(-32px, 0px);
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}

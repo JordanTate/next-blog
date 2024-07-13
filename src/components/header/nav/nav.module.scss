@@ -1,0 +1,126 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--xs);
+
+  .navToggle {
+    position: relative;
+    min-width: unset;
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    cursor: pointer;
+    z-index: 1;
+
+    @media (min-width: 912px) {
+      display: none;
+    }
+
+    div {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      span {
+        position: absolute;
+        top: calc(50% - 1px);
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: rgb(var(--background-rgb));
+        border-radius: 2px;
+        transition: transform 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+
+        &:nth-child(1) {
+          transform: translateY(0.5rem);
+        }
+
+        &:nth-child(2) {
+          transform: translateY(0);
+        }
+
+        &:nth-child(3) {
+          transform: translateY(-0.5rem);
+        }
+      }
+    }
+
+    &.open {
+      span {
+        &:nth-child(1) {
+          transform: rotate(45deg) translateY(0);
+        }
+
+        &:nth-child(2) {
+          transform: rotate(45deg) translateY(0);
+        }
+
+        &:nth-child(3) {
+          transform: rotate(-45deg) translateY(0);
+        }
+      }
+    }
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: -350px;
+    width: clamp(350px, 350px, 100vw);
+    height: 100vh;
+    padding: calc(var(--xl) + 1rem) 1rem 1rem 1rem;
+    background-color: rgb(var(--nav-rgb));
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    transition: left 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+    overflow-y: auto;
+    z-index: -1;
+
+    &.open {
+      left: 0;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      a {
+        display: block;
+        padding: 0.5rem;
+      }
+    }
+
+    @media (min-width: 912px) {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      padding: unset;
+      background-color: unset;
+      box-shadow: none;
+      z-index: auto;
+
+      ul {
+        flex-direction: row;
+
+        li {
+          margin-left: var(--sm);
+
+          &:first-child {
+            padding-right: var(--sm);
+            border-right: 1px solid rgb(var(--card-border-rgb));
+          }
+        }
+      }
+    }
+
+    @media (min-width: 912px) {
+      position: static;
+      width: auto;
+      height: unset;
+    }
+  }
+}

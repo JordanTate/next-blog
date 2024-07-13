@@ -1,0 +1,12 @@
+.slate {
+  width: 100%;
+  padding: var(--sm);
+  margin-bottom: var(--sm);
+  border: var(--card-border);
+  border-radius: 0 0 var(--xs) var(--xs);
+  border-top: none;
+
+  &:focus-within {
+    outline: none;
+  }
+}

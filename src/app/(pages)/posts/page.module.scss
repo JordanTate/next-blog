@@ -1,0 +1,9 @@
+.container {
+  padding: var(--sm);
+
+  .results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sm);
+  }
+}

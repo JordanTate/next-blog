@@ -1,0 +1,16 @@
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sm);
+  padding: var(--sm);
+  background-color: rgb(var(--card-rgb));
+  border: var(--card-border);
+  border-radius: var(--xs) var(--xs) 0 0;
+
+  .group {
+    display: flex;
+    gap: var(--xs);
+    padding-right: var(--sm);
+    border-right: var(--card-border);
+  }
+}

@@ -1,0 +1,39 @@
+.footer {
+  margin: var(--sm) 0;
+
+  .container {
+    padding: var(--md) var(--sm);
+    text-align: center;
+
+    p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: unset;
+
+      svg {
+        &:hover {
+          animation: jump 4s infinite;
+        }
+      }
+    }
+  }
+}
+
+@keyframes jump {
+  0%,
+  10%,
+  18%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  5% {
+    transform: translateY(-8px);
+  }
+
+  15% {
+    transform: translateY(-4px);
+  }
+}

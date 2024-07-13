@@ -1,0 +1,9 @@
+$content-container: calc(((var(--max-width) - ((var(--sm) * 2))) / 3) * 2);
+
+.container {
+  padding: var(--sm);
+
+  .content {
+    max-width: $content-container;
+  }
+}

@@ -1,0 +1,32 @@
+.button {
+  position: relative;
+  transform: perspective(500px) rotateX(0deg) rotateY(0deg);
+  transition: scale 0.33s cubic-bezier(0.075, 0.82, 0.165, 1),
+    transform 0.33s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &:hover {
+    scale: 1.05;
+    transform: perspective(500px) rotateX(calc(var(--tiltY) * 5))
+      rotateY(calc(var(--tiltX) * 5));
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: var(--y);
+    left: var(--x);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    aspect-ratio: 1;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.25), transparent);
+    filter: blur(1px);
+    opacity: 0;
+    transition: top 0.1s cubic-bezier(0.65, 0.71, 0.89, 0.51),
+      left 0.1s cubic-bezier(0.65, 0.71, 0.89, 0.51), opacity 0.33s linear;
+    pointer-events: none;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}

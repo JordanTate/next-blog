@@ -1,0 +1,15 @@
+.toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: unset;
+  height: unset;
+  min-width: unset;
+  padding: 0;
+  color: rgb(var(--foreground-rgb));
+  background-color: transparent;
+
+  &:hover {
+    scale: unset;
+  }
+}
