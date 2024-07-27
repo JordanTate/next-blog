@@ -20,10 +20,10 @@ export default function Page() {
           <p>
             I made this blog as part of my portfolio, but I also plan to use it
             and continusouly develop it. I will be rambling on here a lot about
-            all sorts of stuff, so I'm hoping the tagging system I&apos;ve created
+            all sorts of stuff, so I&apos;m hoping the tagging system I&apos;ve created
             can keep up! I will also be posting some of my other projects here,
             either solo or with friends, so be sure to keep and eye out for that,
-            or feel free to get in touch if you'd also like to contribute or give
+            or feel free to get in touch if you&apos;d also like to contribute or give
             me some advice!
           </p>
         </div>
