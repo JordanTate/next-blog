@@ -1,5 +1,5 @@
 import { Editor, Element, Node, Text, Transforms } from 'slate';
-import { CustomMarks } from '@/components/slate/types/slate';
+import { Block, CustomMarks, Leaf } from '@/components/slate/types/slate';
 
 const ALIGNMENT_TYPES = ['left', 'center', 'right', 'justify'];
 const LIST_TYPES = ['numbered-list', 'bulleted-list'];
@@ -76,18 +76,19 @@ export function toggleMark(editor: Editor, format: string) {
   }
 }
 
-export const serialize = (node: Node) => {
+export const serialize = (node: Block) => {
   if (Text.isText(node)) {
+    const leaf = node as Leaf;
     let string = node.text;
 
-    if (node.bold) {
+    if (leaf.bold) {
       string = `<strong>${string}</strong>`;
     }
 
     return string;
   }
 
-  const children = node.children.map(n => serialize(n)).join('');
+  const children: string = node.children.map(n => serialize(n as Block)).join('');
 
   switch (node.type) {
     case 'heading-one':

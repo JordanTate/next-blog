@@ -1,19 +1,21 @@
 import { Text } from 'slate';
+import { Block, Leaf } from '../types/slate';
 
-function serialize(node: Node) {
+function serialize(node: Block): JSX.Element | string {
   console.log(node);
 
   if (Text.isText(node)) {
     let string = <span>{node.text}</span>;
+    const leaf = node as Leaf;
 
-    if (node.bold) {
+    if (leaf.bold) {
       string = <strong>${string}</strong>;
     }
 
     return string;
   }
 
-  const children = node.children.map((n) => serialize(n)).join('');
+  const children = node.children.map((n) => serialize(n as Block)).join('');
 
   switch (node.type) {
     case 'heading-one':
@@ -45,8 +47,6 @@ function serialize(node: Node) {
   }
 }
 
-export default function Serialize({ node }: { node: Node }) {
-  console.log(serialize(node));
-
+export default function Serialize({ node }: { node: Block }) {
   return <div>{serialize(node)}</div>;
 }

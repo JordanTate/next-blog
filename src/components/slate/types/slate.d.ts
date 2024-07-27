@@ -29,7 +29,7 @@ export interface LeafProps extends RenderLeafProps {
 
 export interface Block {
   type: string;
-  children: CustomElement[];
+  children: CustomElement[] | Block[];
 }
 
 export interface BlockProps extends RenderElementProps {

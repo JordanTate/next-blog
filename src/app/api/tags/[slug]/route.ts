@@ -1,7 +1,10 @@
 import { NextResponse } from 'next/server';
 import { getTagBySlug } from '@/controllers/tagController';
 
-export async function GET({ params }: { params: { slug: string } }) {
+export async function GET(
+  request: Request,
+  { params }: { params: { slug: string } }
+) {
   const { slug } = params;
 
   try {

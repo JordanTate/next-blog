@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import type { Post } from '@/types/post';
+import type { Block } from '@/components/slate/types/slate';
 import { getImageUrl } from '@/lib/s3';
 import { getPost } from '@/controllers/postController';
 import Container from '@/components/container';
@@ -35,7 +36,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             </div>
           }
           {
-            content && <div dangerouslySetInnerHTML={{__html: serialize(content)}}></div>  
+            content && <div dangerouslySetInnerHTML={{__html: serialize(content as Block)}}></div>  
           }
         </div>
       </Container>
