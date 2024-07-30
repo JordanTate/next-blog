@@ -10,7 +10,10 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'jt-blog.s3.eu-west-2.amazonaws.com',
+        hostname:
+          process.env.NODE_ENV == 'development'
+            ? 'jt-blog.s3.eu-west-2.amazonaws.com'
+            : 'blog.jordantate.dev',
         port: '',
         pathname: '/images/**',
       },
