@@ -7,6 +7,9 @@ import Container from '@/components/container';
 import { serialize } from '@/components/slate/utils/helpers';
 import styles from './page.module.scss';
 
+// Revalidate every hour
+export const revalidate = 3600;
+
 async function getData(id: string): Promise<Post | null> {
   const post = await getPost(id);
 
