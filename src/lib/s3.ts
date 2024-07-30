@@ -44,7 +44,11 @@ export async function uploadImage(image: File, path: string = '') {
 }
 
 export function getImageUrl(key: string) {
-  return `https://${process.env.AWS_BUCKET}.s3.${process.env.AWS_REGION}.amazonaws.com/${key}`;
+  if (process.env.NODE_ENV === 'development') {
+    return `https://${process.env.AWS_BUCKET}.s3.${process.env.AWS_REGION}.amazonaws.com/${key}`;
+  } else {
+    return key;
+  }
 }
 
 export function getImageKey(image: File, path: string = '') {
