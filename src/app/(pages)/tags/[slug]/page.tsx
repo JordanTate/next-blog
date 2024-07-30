@@ -3,6 +3,9 @@ import Result from '@/components/post/result';
 import { getTagBySlug } from '@/controllers/tagController';
 import styles from './page.module.scss'
 
+// Revalidate every hour
+export const revalidate = 3600;
+
 async function getData(slug: string) {
   const tag = await getTagBySlug(slug);
 

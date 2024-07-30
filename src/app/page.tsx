@@ -8,6 +8,9 @@ import Featured from '@/components/post/featured';
 import { getFeaturedPost, getLatestPost } from '@/utils/functions';
 import styles from './page.module.scss';
 
+// Revalidate every hour
+export const revalidate = 3600;
+
 async function getData() {
   const posts = await getPosts();
   const tags = await getTags();
