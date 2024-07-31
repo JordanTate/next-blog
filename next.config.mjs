@@ -12,8 +12,8 @@ const nextConfig = {
         protocol: 'https',
         hostname:
           process.env.NODE_ENV == 'development'
-            ? 'jt-blog.s3.eu-west-2.amazonaws.com'
-            : 'blog.jordantate.dev',
+            ? `${process.env.AWS_BUCKET}.s3.${process.env.AWS_REGION}.amazonaws.com`
+            : `${process.env.PRODUCTION_DOMAIN}`,
         port: '',
         pathname: '/images/**',
       },
