@@ -47,7 +47,7 @@ export function getImageUrl(key: string) {
   if (process.env.NODE_ENV === 'development') {
     return `https://${process.env.AWS_BUCKET}.s3.${process.env.AWS_REGION}.amazonaws.com/${key}`;
   } else {
-    return `/${key}`;
+    return `${process.env.PRODUCTION_URL}/${key}`;
   }
 }
 
