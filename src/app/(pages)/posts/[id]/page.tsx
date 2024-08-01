@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         <div className={styles.blog}>
           {post.image != null && 
             <div className={styles.hero}>
-              <Image src={getImageUrl(post.image)} alt={post.alt ?? ''} width={1920} height={400} />
+              <Image src={getImageUrl(post.image)} alt={post.alt ?? ''} width={1600} height={400} />
               <div className={styles.overlay}>
                 <h1>{post.title}</h1>
               </div>
